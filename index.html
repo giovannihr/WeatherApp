@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>WeatherApp</title>
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+<!-- endbower -->
+
+<!-- inject:css -->
+<!-- endinject -->
+</head>
+
+<body ng-controller="WeatherController as vm">
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<!-- endbower -->
+<h1>Weather App</h1>
+
+<input type="text" id="city" placeholder="Enter city here" ng-model="vm.city">
+<button ng-click="">Check Weather!</button>
+
+<pre>{{ vm.weather.city.name | json }}</pre>
+
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<script src="/app/weather.controller.js"></script>
+<script src="/app/weather.factory.js"></script>
+<!-- endinject -->
+</body>
+</html>
