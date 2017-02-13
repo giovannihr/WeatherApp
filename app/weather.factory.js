@@ -16,13 +16,19 @@
 
         ////////////////
 
-        function getWeather() {
+        function getWeather(city) {
 
             var defer = $q.defer();
 
             $http({
                 method: 'GET',
-                url: 'http://api.openweathermap.org/data/2.5/forecast/city?APPID=111d10af8ebaf71c2457d00940cee937&q=Moscow'
+                url: 'http://api.openweathermap.org/data/2.5/weather',
+                params: {
+                    appid: '111d10af8ebaf71c2457d00940cee937',
+                    q: "'" + city + "'",
+
+                }
+
             }).then(function(response) {
                 if (typeof response.data === 'object') {
                     defer.resolve(response);
@@ -31,8 +37,8 @@
                 }
 
             }, function(error) {
-            	console.log(error);
-            	defer.reject(error);
+                console.log(error);
+                defer.reject(error);
             });
 
             return defer.promise;
